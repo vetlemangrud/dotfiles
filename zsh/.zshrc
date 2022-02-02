@@ -25,6 +25,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # Alias city
 alias src="source ~/.zshrc"
 alias nv="nvim"
+alias c="clear"
 
 ## LSD-stuff
 alias ls='lsd'
