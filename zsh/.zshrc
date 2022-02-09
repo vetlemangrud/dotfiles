@@ -26,6 +26,11 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 alias src="source ~/.zshrc"
 alias nv="nvim"
 alias c="clear"
+alias h="cd $HOME"
+alias ..="cd .."
+
+# Suffix aliases
+alias -s {md,js,json,html}=code
 
 ## LSD-stuff
 alias ls='lsd'
