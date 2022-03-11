@@ -29,9 +29,10 @@ alias c="clear"
 alias h="cd $HOME"
 alias ..="cd .."
 
+# Compile and run 
 runc() {
 	gcc -Wall $1.c -o $1.out
-	./$1.out
+	./$1.out ${@: 2}
 }
 
 # Suffix aliases
