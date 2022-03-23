@@ -47,3 +47,8 @@ alias lt='ls --tree'
 
 # Autosuggestions
 source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#thefuck
+export PATH="$HOME/.local/bin:$PATH"
+eval $(thefuck --alias)
+
