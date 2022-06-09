@@ -52,3 +52,5 @@ source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$HOME/.local/bin:$PATH"
 eval $(thefuck --alias)
 
+#ranger
+alias rng=". ranger"
