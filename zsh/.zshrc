@@ -54,3 +54,9 @@ eval $(thefuck --alias)
 
 #ranger
 alias rng=". ranger"
+
+# Open named kitty session
+ks() {
+	kitty --detach --session ~/Programming/kittyseshs/$1
+	exit
+}
