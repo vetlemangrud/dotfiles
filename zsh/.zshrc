@@ -52,8 +52,18 @@ source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$HOME/.local/bin:$PATH"
 eval $(thefuck --alias)
 
+#coursier
+export PATH="$PATH:/home/vetle/.local/share/coursier/bin"
+
+#denoexport 
+DENO_INSTALL="/home/vetle/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 #ranger
 alias rng=". ranger"
+
+# View images with icat
+alias icat="kitty +kitten icat"
 
 # Open named kitty session
 ks() {
@@ -61,6 +71,43 @@ ks() {
 	exit
 }
 
+# Maven
+M2_HOME='/opt/apache-maven-3.9.0'
+PATH="$M2_HOME/bin:$PATH"
+export PATH
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/vetle/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/vetle/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/vetle/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/vetle/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# pnpm
+export PNPM_HOME="/home/vetle/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Flutter
+export PATH="$PATH:/home/vetle/android-studio/bin"
+
+source /home/vetle/Programming/carrot-stats/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f "/home/vetle/.ghcup/env" ] && source "/home/vetle/.ghcup/env" # ghcup-env
+export PATH="/home/vetle/.ghcup/bin:$PATH"

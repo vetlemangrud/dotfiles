@@ -1,0 +1,8 @@
+{
+    "workspace.library": [
+        "/home/vetle/.local/share/nvim/site/pack/packer/start/neodev.nvim/types/stable",
+        "/tmp/.mount_nvimD3ATOZ/usr/share/nvim/runtime/lua",
+        "/home/vetle/.dotfiles/nvim/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
