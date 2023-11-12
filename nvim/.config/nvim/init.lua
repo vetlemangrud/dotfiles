@@ -1,4 +1,7 @@
 -- Install Lazy
+--
+-- -- Remap to center on vertical jump
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -56,11 +59,16 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n','v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Remap to center on vertical jump
+vim.keymap.set('n', '<C-u>', "<C-u>zz")
+vim.keymap.set('n', '<C-d>', "<C-d>zz")
+
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -76,7 +84,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Set colorscheme
 require('nightfox').setup({
   options = {
-    transparent = true,    -- Disable setting background
+    transparent = true, -- Disable setting background
   },
 })
 vim.o.termguicolors = true
@@ -313,6 +321,36 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+-- Turn on format on Save
+
+local format_on_save = require("format-on-save")
+local formatters = require("format-on-save.formatters")
+format_on_save.setup({
+  exclude_path_patterns = {
+    "/node_modules/",
+    ".local/share/nvim/lazy",
+  },
+  formatter_by_ft = {
+    css = formatters.lsp,
+    html = formatters.lsp,
+    java = formatters.lsp,
+    javascript = formatters.lsp,
+    json = formatters.lsp,
+    lua = formatters.lsp,
+    markdown = formatters.prettierd,
+    openscad = formatters.lsp,
+    python = formatters.black,
+    rust = formatters.lsp,
+    scad = formatters.lsp,
+    scss = formatters.lsp,
+    sh = formatters.shfmt,
+    terraform = formatters.lsp,
+    typescript = formatters.prettierd,
+    typescriptreact = formatters.prettierd,
+    yaml = formatters.lsp
+  }
+})
+
 -- Turn on lsp status information
 require('fidget').setup()
 
@@ -363,4 +401,3 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
- 
