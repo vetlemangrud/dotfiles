@@ -51,6 +51,10 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
+-- Use spaces instead of tab
+vim.o.tabstop = 2
+vim.o.expandtab = true
+vim.o.shiftwidth = 0
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -347,7 +351,8 @@ format_on_save.setup({
     terraform = formatters.lsp,
     typescript = formatters.prettierd,
     typescriptreact = formatters.prettierd,
-    yaml = formatters.lsp
+    yaml = formatters.lsp,
+    c = formatters.lsp
   }
 })
 
@@ -398,6 +403,9 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+
+vim.keymap.set('n', '<leader>lg', ":LazyGit<enter>", { desc = '[L]azy [G]it' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

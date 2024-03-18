@@ -39,10 +39,10 @@ return { {
   },
 
   -- Indent guides
-  { "lukas-reineke/indent-blankline.nvim",      main = "ibl",     opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
   -- Format on saves
-  {"elentok/format-on-save.nvim"},
+  { "elentok/format-on-save.nvim" },
 
 
   -- Git related plugins
@@ -62,4 +62,20 @@ return { {
   -- Fuzzy Finder Algorithm which dependencies local dependencies to be built. Only load if `make` is available
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make',   cond = vim.fn.executable 'make' == 1 },
   'ggandor/leap.nvim', -- Blazingly fast navigation
+
+  -- Integration between nvim and lazygit
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
