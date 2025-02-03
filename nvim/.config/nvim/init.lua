@@ -288,7 +288,13 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {
+    single_file_support = false,
+    --root_dir = require('lspconfig.util').root_pattern("package.json")(),
+  },
+  denols = {
+    --root_dir = require('lspconfig.util').root_pattern("deno.json")(),
+  },
 
   lua_ls = {
     Lua = {
