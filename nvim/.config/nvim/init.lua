@@ -369,7 +369,6 @@ require('leap').add_default_mappings()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
 
 cmp.setup {
   snippet = {
@@ -412,6 +411,10 @@ cmp.setup {
 
 
 vim.keymap.set('n', '<leader>lg', ":LazyGit<enter>", { desc = '[L]azy [G]it' })
+
+-- Oil.nvim
+require("oil").setup()
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
