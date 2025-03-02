@@ -288,10 +288,10 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  tsserver = {
-    single_file_support = false,
-    --root_dir = require('lspconfig.util').root_pattern("package.json")(),
-  },
+  -- tsserver = {
+  --   single_file_support = false,
+  --   --root_dir = require('lspconfig.util').root_pattern("package.json")(),
+  -- },
   denols = {
     --root_dir = require('lspconfig.util').root_pattern("deno.json")(),
   },
@@ -369,6 +369,7 @@ require('leap').add_default_mappings()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
+local luasnip = require 'luasnip'
 
 cmp.setup {
   snippet = {
@@ -413,7 +414,6 @@ cmp.setup {
 vim.keymap.set('n', '<leader>lg', ":LazyGit<enter>", { desc = '[L]azy [G]it' })
 
 -- Oil.nvim
-require("oil").setup()
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
