@@ -45,6 +45,9 @@ alias la='ls -A'
 alias lla='ls -lA'
 alias lt='ls --tree'
 
+## LazyGit
+alias lg="lazygit"
+
 # Autosuggestions
 source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
 
