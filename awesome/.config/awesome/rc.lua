@@ -52,8 +52,6 @@ do
 end
 -- }}}
 
--- Set wallpaper with feh
-awful.spawn.with_shell("feh --bg-fill ~/Pictures/wallpaper.png")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
