@@ -190,6 +190,9 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
@@ -239,6 +242,10 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
+            volume_widget {
+                widget_type = 'horizontal_bar'
+            },
+            battery_widget(),
             s.mylayoutbox,
         },
     }
@@ -351,7 +358,25 @@ globalkeys = gears.table.join(
         { description = "lua execute prompt", group = "awesome" }),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-        { description = "show the menubar", group = "launcher" })
+        { description = "show the menubar", group = "launcher" }),
+
+    -- Lock Screen
+    awful.key({ modkey, "Control" }, "l",
+        function()
+            awful.util.spawn("sync")
+            awful.util.spawn("xautolock -locknow")
+        end,
+        { description = "Lock screen", group = "screen" }),
+    -- Volume
+    awful.key({}, "XF86AudioLowerVolume", function()
+        awful.util.spawn("amixer -q -D pulse sset Master 5%-", false)
+    end),
+    awful.key({}, "XF86AudioRaiseVolume", function()
+        awful.util.spawn("amixer -q -D pulse sset Master 5%+", false)
+    end),
+    awful.key({}, "XF86AudioMute", function()
+        awful.util.spawn("amixer -D pulse set Master 1+ toggle", false)
+    end)
 )
 
 clientkeys = gears.table.join(
@@ -444,14 +469,7 @@ for i = 1, 9 do
                     end
                 end
             end,
-            { description = "toggle focused client on tag #" .. i, group = "tag" }),
-        -- Lock Screen
-        awful.key({ modkey, "Control" }, "l",
-            function()
-                awful.util.spawn("sync")
-                awful.util.spawn("xautolock -locknow")
-            end,
-            { description = "Lock screen", group = "screen" })
+            { description = "toggle focused client on tag #" .. i, group = "tag" })
     )
 end
 
