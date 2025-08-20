@@ -102,3 +102,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # Syntax highligthing
 source /home/vetle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# bun completions
+[ -s "/home/vetle/.bun/_bun" ] && source "/home/vetle/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
