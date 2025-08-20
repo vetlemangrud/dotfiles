@@ -289,10 +289,10 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  tsserver = {
-    single_file_support = false,
-    --root_dir = require('lspconfig.util').root_pattern("package.json")(),
-  },
+  -- tsserver = {
+  --   single_file_support = false,
+  --   --root_dir = require('lspconfig.util').root_pattern("package.json")(),
+  -- },
   -- denols = {
   --   --root_dir = require('lspconfig.util').root_pattern("deno.json")(),
   -- },
@@ -317,20 +317,21 @@ require('mason').setup()
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
-
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
   automatic_installation = false,
-  handlers = {
-    function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-    end,
-  },
 }
+
+-- Add keybinds and settings
+vim.lsp.config("*", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+for server, config in pairs(servers) do
+  vim.lsp.config(server, {
+    settings = config
+  })
+end
 
 
 
