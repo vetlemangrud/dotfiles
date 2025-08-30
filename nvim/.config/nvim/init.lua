@@ -413,6 +413,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+require("luasnip.loaders.from_vscode").lazy_load()
 
 
 vim.keymap.set('n', '<leader>lg', ":LazyGit<enter>", { desc = '[L]azy [G]it' })

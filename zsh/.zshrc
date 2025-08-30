@@ -109,3 +109,4 @@ source /home/vetle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.tfenv/bin:$PATH"
