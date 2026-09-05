@@ -106,7 +106,7 @@ export PATH="/home/vetle/.local/share/bob/nvim-bin:$PATH"
 source /home/vetle/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zoxide
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh --cmd z)"
 
 # bun completions
 [ -s "/home/vetle/.bun/_bun" ] && source "/home/vetle/.bun/_bun"
