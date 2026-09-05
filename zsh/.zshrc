@@ -30,9 +30,9 @@ alias lg="lazygit"
 # Autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-#thefuck
-#export PATH="$HOME/.local/bin:$PATH"
-#eval $(thefuck --alias)
+# thefuck
+export PATH="$HOME/.local/bin:$PATH"
+eval $(thefuck --alias)
 
 #coursier
 export PATH="$PATH:/home/vetle/.local/share/coursier/bin"
@@ -60,6 +60,7 @@ export PATH
 
 # Archlinux-java
 export JAVA_HOME="/usr/lib/jvm/default"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
