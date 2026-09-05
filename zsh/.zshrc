@@ -58,6 +58,9 @@ M2_HOME='/opt/apache-maven-3.9.0'
 PATH="$M2_HOME/bin:$PATH"
 export PATH
 
+# Archlinux-java
+export JAVA_HOME="/usr/lib/jvm/default"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
