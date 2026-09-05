@@ -103,7 +103,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/home/vetle/.local/share/bob/nvim-bin:$PATH"
 
 # Syntax highligthing
-source /home/vetle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/vetle/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
