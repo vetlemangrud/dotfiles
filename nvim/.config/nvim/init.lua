@@ -296,12 +296,7 @@ local servers = {
   -- denols = {
   --   --root_dir = require('lspconfig.util').root_pattern("deno.json")(),
   -- },
-  kotlin_language_server = {
-    kotlin = {
-      compiler = {
-        jvm = { target = "21" }
-      }
-    }
+  kotlin_lsp = {
   },
 
   lua_ls = {
