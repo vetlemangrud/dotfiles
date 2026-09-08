@@ -31,8 +31,8 @@ alias lg="lazygit"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # thefuck
-export PATH="$HOME/.local/bin:$PATH"
-eval $(thefuck --alias)
+# export PATH="$HOME/.local/bin:$PATH"
+# eval $(thefuck --alias)
 
 #coursier
 export PATH="$PATH:/home/vetle/.local/share/coursier/bin"
@@ -119,3 +119,6 @@ eval "$(zoxide init zsh --cmd z)"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
+
+# odin
+export PATH="/usr/share/odin:$PATH"
