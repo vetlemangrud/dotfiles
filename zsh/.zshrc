@@ -41,9 +41,14 @@ export PATH="$PATH:/home/vetle/.local/share/coursier/bin"
 DENO_INSTALL="/home/vetle/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-#ranger
-alias rng=". ranger"
-
+# yazi
+function y() {
+	local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+	command rm -f -- "$tmp"
+}
 # View images with icat
 alias icat="kitty +kitten icat"
 
