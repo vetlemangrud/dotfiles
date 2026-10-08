@@ -52,12 +52,6 @@ function y() {
 # View images with icat
 alias icat="kitty +kitten icat"
 
-# Open named kitty session
-ks() {
-	kitty --detach --session ~/Programming/kittyseshs/$1
-	exit
-}
-
 # Maven
 M2_HOME='/opt/apache-maven-3.9.0'
 PATH="$M2_HOME/bin:$PATH"
