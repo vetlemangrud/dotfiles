@@ -319,8 +319,11 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- Screenshots
-hl.bind("Print",
-    hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
+hl.bind("Print", function()
+    local mon = hl.get_active_monitor()
+    local n = mon and mon.id or 0
+    hl.exec_cmd("flameshot screen --number " .. n .. " --edit")
+end)
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -373,8 +376,19 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name = "satty-float",
-    match = { class = "^(com.gabm.satty)$" },
-    float = true,
-    center = true
+    match     = { class = "flameshot" },
+    no_anim   = true,
+    pin       = true,
+    float     = true,
+    decorate  = false,
+    no_blur   = true,
+    no_shadow = true,
+})
+hl.window_rule({
+    match = { class = "flameshot", title = "flameshot" },
+    move  = { 0, 0 },
+})
+hl.window_rule({
+    match = { class = "flameshot", title = "flameshot-pin" },
+    move  = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
 })
