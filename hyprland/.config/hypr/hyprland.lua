@@ -255,7 +255,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + D", hl.dsp.layout("togglesplit"))     -- dwindle only
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprlock")) -- dwindle only
 
--- Move focus with mainMod + arrow keys
+-- Move focus with mainMod + HJKL
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
@@ -356,6 +356,7 @@ hl.window_rule({
     float = true,
 })
 
+-- Flameshot widow rules
 hl.window_rule({
     match     = { class = "flameshot" },
     no_anim   = true,
