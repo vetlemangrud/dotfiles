@@ -374,3 +374,9 @@ hl.window_rule({
     match = { class = "flameshot", title = "flameshot-pin" },
     move  = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
 })
+-- Waybar widgets
+hl.window_rule({
+    match = { class = "^(org.pulseaudio.pavucontrol)$" },
+    pin   = true,
+    float = true,
+})
